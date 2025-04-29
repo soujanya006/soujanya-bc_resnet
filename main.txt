@@ -49,7 +49,8 @@ class Trainer:
         lr_lower_limit = 0
 
         # optimizer
-        optimizer = torch.optim.SGD(self.model.parameters(), lr=0.01, weight_decay=1e-3, momentum=0.9)
+        #optimizer = torch.optim.SGD(self.model.parameters(), lr=0.01, weight_decay=1e-3, momentum=0.9)
+        optimizer = torch.optim.AdamW(self.model.parameters(), lr=0.001, weight_decay=1e-4)
         n_step_warmup = len(self.train_loader) * warmup_epoch
         total_iter = len(self.train_loader) * total_epoch
         iterations = 0
